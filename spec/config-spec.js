@@ -242,7 +242,7 @@ describe('Config', () => {
         expect(atom.config.set('foo.bar', 1, {scopeSelector: '*'})).toBe(true)
         expect(atom.config.set('foo.baz', 2, {scopeSelector: '*'})).toBe(true)
         expect(atom.config.get('foo.bar')).toBe(1)
-        expect(atom.config.get('foo.baz')).toBe(2)
+        expect(atom.config.get('foo.baz')).toBe(false)
       })
     )
   })
