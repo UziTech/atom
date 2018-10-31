@@ -237,6 +237,13 @@ describe('Config', () => {
         expect(atom.config.set('foo.bar.baz', 100, {scopeSelector: '.source.coffee .string.quoted.double.coffee'})).toBe(true)
         expect(atom.config.get('foo.bar.baz', {scope: ['.source.coffee', '.string.quoted.double.coffee']})).toBe(100)
       })
+
+      it("does not overwrite settings when scopeSelector is '*'", () => {
+        expect(atom.config.set('foo.bar', 1, {scopeSelector: '*'})).toBe(true)
+        expect(atom.config.set('foo.baz', 2, {scopeSelector: '*'})).toBe(true)
+        expect(atom.config.get('foo.bar')).toBe(1)
+        expect(atom.config.get('foo.baz')).toBe(2)
+      })
     )
   })
 
